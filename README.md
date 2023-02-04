@@ -2,7 +2,7 @@
 
 ## Final Project - Space Invaders
 
-The aim of this project was to build a 'Space Invaders' style game using [BSL](https://docs.racket-lang.org/htdp-langs/beginner.html) (a subset of [Racket](https://racket-lang.org/)), as a 'world' program utilising the `big-bang` function. The specification for the game can be seen below:
+The aim of this project was to build a 'Space Invaders' style game using [BSL](https://docs.racket-lang.org/htdp-langs/beginner.html) (a subset of [Racket](https://racket-lang.org/)), as a 'world' program utilising the `big-bang` function. The specification for the game can be seen below.
 
 ![Image showing three states of gameplay in the space invader game. 1 - Game start with small black tank at bottom of screen and blue invaders floating down from the top of the screen. 2 - mid gameplay with the tank firing red missiles up at the invaders to destroy them. 3 - Game over screen where an invader has reached the bottom of the screen.](./space-invader.png)
 
@@ -47,12 +47,12 @@ On each tick of the game, the `on-tick` function of `big-bang` calls `update-gam
 
 Once the `Game` state is updated, the new scene is rendered by `to-draw` calling `render`, which renders the 'Tank`, then 'Missiles' and finally 'Invaders' onto the game background.
 
-The `on-key` function calls `handle-key` which:
+The `on-key` function calls `handle-key` to handle any user keyboard input, which:
 
 - checks if the left or right arrow key is pressed, and will update the tanks direction if so (`update-tank-direction`)
-- checks if the spacebar is pressed, and if so, spawns a new missile at the current `Tank` position.
+- checks if the spacebar is pressed, and if so, spawns a new missile at the current `Tank` position (`add-missile`)
 
-On each tick `stop-when` calls `game-over?` which checks if any `Invader` has reached the bottom of the screen, if it has then the game should end.
+On each tick `stop-when` calls `game-over?` which checks if any `Invader` has reached the bottom of the screen, if this is the case then the game ends.
 
 ### Specification
 
